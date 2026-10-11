@@ -4,19 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10243a">
-  <meta name="description" content="Oğuzhan Servis Taşımacılığı. Ulaşım ihtiyaçlarınız için iletişime geçin.">
-  <title>Oğuzhan | Servis Taşımacılığı</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Oğuzhan Ulaşım Hizmetleri. Güvenilir servis taşımacılığı ve doğrudan iletişim.">
+  <title>Oğuzhan Ulaşım Hizmetleri | Servis Taşımacılığı</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #10243a;
-      --blue: #245a83;
-      --light: #f4f7fa;
-      --text: #182536;
-      --muted: #64748b;
-      --line: #e1e8ef;
-      --green: #168b60;
+      color-scheme: light;
+      --page: #ffffff;
+      --surface: #ffffff;
+      --soft: #f5f7fa;
+      --navy: #101d35;
+      --text: #253147;
+      --muted: #687386;
+      --blue: #315be8;
+      --line: #e7eaf0;
+      --box: #f7f9fd;
+      --shadow: 0 12px 35px rgba(16, 29, 53, 0.06);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --page: #0d1421;
+        --surface: #151e2e;
+        --soft: #1a2435;
+        --navy: #edf2ff;
+        --text: #dbe3f2;
+        --muted: #a3aec2;
+        --blue: #8ba6ff;
+        --line: #2a3549;
+        --box: #172236;
+        --shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      }
     }
 
     * {
@@ -25,497 +49,744 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 24px;
     }
 
     body {
       margin: 0;
+      background: var(--page);
       color: var(--text);
-      background: white;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s, color 0.2s;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
     }
 
     .container {
-      width: min(1080px, 90%);
-      margin: auto;
+      width: min(1080px, calc(100% - 44px));
+      margin-inline: auto;
     }
 
-    header {
+    .site-header {
       border-bottom: 1px solid var(--line);
-      background: white;
+      background: var(--page);
     }
 
-    .nav {
-      min-height: 78px;
+    .header-inner {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-name {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .brand-caption {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* ANA ALAN */
+
+    .hero {
+      padding: 88px 0 74px;
+      background: var(--page);
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 800;
+      letter-spacing: -2.2px;
+      line-height: 1.12;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-subtitle {
+      margin: 14px 0 0;
+      color: var(--blue);
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(16px, 2.5vw, 20px);
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 570px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero-note {
+      max-width: 620px;
+      margin-top: 30px;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--blue);
+      border-radius: 12px;
+      background: var(--box);
+      box-shadow: var(--shadow);
+    }
+
+    .note-copy strong {
+      display: block;
+      margin: 0;
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .note-copy p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* HİZMET İLKELERİ */
+
+    .principles {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .principles-inner {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .principle {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-height: 100px;
+      padding: 22px 20px;
+    }
+
+    .principle + .principle {
+      border-left: 1px solid var(--line);
+    }
+
+    .principle-number {
+      color: var(--blue);
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .principle-text {
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* İLETİŞİM */
+
+    .contact-section {
+      padding: 88px 0 94px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .section-label {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .contact-section h2 {
+      max-width: 510px;
+      margin: 0;
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(28px, 4vw, 39px);
+      font-weight: 800;
+      letter-spacing: -1.1px;
+      line-height: 1.25;
+    }
+
+    .contact-description {
+      max-width: 490px;
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      min-height: 47px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: transform 0.18s, background-color 0.18s,
+        border-color 0.18s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: var(--page);
+    }
+
+    .button-secondary {
+      background: var(--surface);
+      color: var(--navy);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--blue);
+    }
+
+    .contact-panel {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h3 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .contact-panel > p {
+      margin: 0 0 19px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .details-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 0 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+      background: transparent;
+      color: var(--navy);
+      cursor: pointer;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .toggle-arrow {
+      color: var(--blue);
+      transition: transform 0.2s;
+    }
+
+    .details-toggle[aria-expanded="true"] .toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .contact-details {
+      display: grid;
+      padding-top: 12px;
+    }
+
+    .contact-details[hidden] {
+      display: none;
+    }
+
+    .detail-row {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-row:last-child {
+      border-bottom: 0;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .detail-value {
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-link {
+      color: var(--blue);
+    }
+
+    /* ALT BİLGİ */
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: var(--page);
+    }
+
+    .footer-inner {
+      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: -.4px;
-    }
-
-    .brand-icon {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      color: white;
-      background: var(--navy);
-      border-radius: 12px;
-      font-size: 23px;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .hero {
-      background:
-        radial-gradient(ellipse at 90% 10%, #dce9f5 0, transparent 40%),
-        linear-gradient(120deg, #f4f7fa, #ffffff 75%);
-      padding: 94px 0 100px;
-    }
-
-    .hero-content {
-      max-width: 730px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 12px;
-      background: #e5eef7;
-      color: var(--blue);
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
-    }
-
-    h1 {
-      margin: 23px 0 18px;
+    .footer-brand {
       color: var(--navy);
-      font-size: clamp(38px, 6vw, 65px);
-      line-height: 1.1;
-      letter-spacing: -2px;
-    }
-
-    .hero p {
-      max-width: 560px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.8;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
-      min-height: 49px;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 13px 20px;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      transition: transform .2s, background .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--navy);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #1c3d5d;
-    }
-
-    .btn-whatsapp {
-      background: var(--green);
-      color: white;
-    }
-
-    .btn-whatsapp:hover {
-      background: #10734e;
-    }
-
-    .btn-outline {
-      background: white;
-      border-color: var(--line);
-      color: var(--navy);
-    }
-
-    .features {
-      padding: 65px 0 75px;
-    }
-
-    .section-heading {
-      margin-bottom: 30px;
-    }
-
-    .section-heading h2 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      font-size: clamp(26px, 4vw, 34px);
-      letter-spacing: -.8px;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .feature {
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: white;
-    }
-
-    .feature-icon {
-      display: grid;
-      place-items: center;
-      width: 45px;
-      height: 45px;
-      margin-bottom: 16px;
-      border-radius: 10px;
-      background: var(--light);
-      font-size: 22px;
-    }
-
-    .feature h3 {
-      margin: 0 0 8px;
-      color: var(--navy);
-      font-size: 17px;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .contact {
-      padding: 62px 0;
-      color: white;
-      background: var(--navy);
-    }
-
-    .contact-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 35px;
-    }
-
-    .contact h2 {
-      margin: 0 0 10px;
-      font-size: clamp(27px, 4vw, 37px);
-      line-height: 1.25;
-    }
-
-    .contact p {
-      margin: 0;
-      max-width: 520px;
-      color: #c5d3e0;
-    }
-
-    .contact .btn-outline {
-      flex-shrink: 0;
-    }
-
-    footer {
-      padding: 35px 0 22px;
-      background: #0b1a2a;
-      color: #d6e0e9;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 30px;
-      padding-bottom: 28px;
-    }
-
-    footer h3 {
-      margin: 0 0 12px;
-      color: white;
-      font-size: 15px;
-    }
-
-    footer p, footer a {
-      color: #b8c6d4;
+      font-family: "Manrope", sans-serif;
       font-size: 13px;
-      line-height: 2;
+      font-weight: 800;
     }
 
-    footer p {
-      margin: 0;
+    .footer-copy {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
     }
 
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .footer-links a {
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .copyright {
-      padding-top: 18px;
-      border-top: 1px solid #2b3a4a;
-      color: #94a6b8;
+    .footer-link {
+      color: var(--muted);
       font-size: 12px;
-      text-align: center;
+      font-weight: 600;
+    }
+
+    .footer-link:hover,
+    .detail-link:hover {
+      color: var(--blue);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
     }
 
     @media (max-width: 700px) {
+      .container {
+        width: min(100% - 36px, 540px);
+      }
+
+      .header-inner {
+        min-height: 76px;
+      }
+
       .hero {
-        padding: 70px 0 75px;
+        padding: 64px 0 57px;
       }
 
-      h1 {
-        letter-spacing: -1.3px;
+      .hero h1 {
+        letter-spacing: -1.5px;
       }
 
-      .feature-grid {
+      .hero-note {
+        margin-top: 25px;
+        padding: 17px;
+      }
+
+      .principles-inner {
         grid-template-columns: 1fr;
       }
 
-      .feature {
-        padding: 22px;
+      .principle {
+        min-height: 68px;
+        padding: 16px 4px;
       }
 
-      .contact-inner {
+      .principle + .principle {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .contact-section {
+        padding: 65px 0 70px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .contact-panel {
+        padding: 21px;
+      }
+
+      .contact-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-actions .button {
+        width: 100%;
+        padding-inline: 10px;
+      }
+
+      .footer-inner {
         align-items: flex-start;
-        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 {
+        font-size: 34px;
       }
 
-      .footer-grid {
+      .contact-actions {
         grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .nav {
-        min-height: 70px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .btn {
-        transition: none;
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#" aria-label="Oğuzhan Servis Taşımacılığı ana sayfa">
-        <span class="brand-icon" aria-hidden="true">O</span>
-        <span>Oğuzhan <span style="color:#245a83">Servis</span></span>
-      </a>
-      <a class="nav-link" href="#iletisim">İletişim ↓</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <p class="brand-name">Oğuzhan Ulaşım Hizmetleri</p>
+        <p class="brand-caption">Servis Taşımacılığı</p>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-content">
-        <span class="eyebrow">SERVİS TAŞIMACILIĞI</span>
-        <h1>Yolculuğunuzda<br>güvenilir bir tercih.</h1>
-        <p>
-          Personel ve servis taşımacılığı ihtiyaçlarınız için
-          iletişime geçin. İhtiyacınızı birlikte değerlendirelim
-          ve size uygun ulaşım çözümünü konuşalım.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-whatsapp" id="heroWhatsApp" href="#">
-            <span aria-hidden="true">◉</span> WhatsApp'tan yaz
-          </a>
-          <a class="btn btn-primary" href="#iletisim">
-            İletişim bilgileri →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="features">
       <div class="container">
-        <div class="section-heading">
-          <h2>Hizmet anlayışım</h2>
-          <p>Her yolculukta açık iletişim ve düzenli hizmet.</p>
-        </div>
+        <div class="hero-content">
+          <p class="hero-kicker">Ulaşımda güven</p>
 
-        <div class="feature-grid">
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">◷</div>
-            <h3>Zamanında ulaşım</h3>
-            <p>
-              Planlanan saatleri ve ulaşım düzenini önemseyen
-              bir hizmet anlayışı.
-            </p>
-          </article>
+          <h1>Oğuzhan Ulaşım Hizmetleri</h1>
 
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">↗</div>
-            <h3>İhtiyaca uygun çözüm</h3>
-            <p>
-              Güzergâh, saat ve taşımacılık ihtiyaçlarını
-              görüşerek size uygun bir plan oluşturma.
-            </p>
-          </article>
+          <p class="hero-subtitle">Servis Taşımacılığı</p>
 
-          <article class="feature">
-            <div class="feature-icon" aria-hidden="true">✓</div>
-            <h3>Doğrudan iletişim</h3>
-            <p>
-              Sorularınız ve talepleriniz için doğrudan
-              iletişim kurabileceğiniz kişisel hizmet.
-            </p>
-          </article>
+          <p class="hero-description">
+            Güvenilir ulaşım ve özenli hizmet anlayışıyla,
+            ihtiyaçlarınıza uygun servis taşımacılığı için
+            doğrudan iletişim kurabilirsiniz.
+          </p>
+
+          <div class="hero-note">
+            <div class="note-copy">
+              <strong>Her yolculukta özenli hizmet.</strong>
+              <p>İhtiyacınızı konuşalım, birlikte değerlendirelim.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="iletisim">
-      <div class="container contact-inner">
-        <div>
-          <h2>Birlikte planlayalım.</h2>
-          <p>
-            Servis taşımacılığı hakkında bilgi almak veya
-            ihtiyacınızı görüşmek için benimle iletişime geçin.
-          </p>
+    <section class="principles" aria-label="Hizmet ilkeleri">
+      <div class="container principles-inner">
+        <div class="principle">
+          <span class="principle-number">01</span>
+          <span class="principle-text">Zamanında ulaşım</span>
         </div>
 
-        <div class="actions" style="margin-top:0">
-          <a class="btn btn-outline" id="contactPhone" href="tel:+905XXXXXXXXX">
-            ☎ Beni ara
-          </a>
-          <a class="btn btn-whatsapp" id="contactWhatsApp" href="#">
-            WhatsApp
-          </a>
+        <div class="principle">
+          <span class="principle-number">02</span>
+          <span class="principle-text">Özenli hizmet</span>
+        </div>
+
+        <div class="principle">
+          <span class="principle-number">03</span>
+          <span class="principle-text">Doğrudan iletişim</span>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
+    <section class="contact-section" id="iletisim">
+      <div class="container contact-layout">
         <div>
-          <h3>Oğuzhan Servis Taşımacılığı</h3>
-          <p>
-            Ulaşım ihtiyaçlarınız için iletişime açık,
-            sade ve çözüm odaklı hizmet.
+          <p class="section-label">İletişim</p>
+
+          <h2>İhtiyacınızı konuşalım. Birlikte çözelim.</h2>
+
+          <p class="contact-description">
+            Servis taşımacılığıyla ilgili ihtiyaçlarınızı paylaşın.
+            Detayları doğrudan görüşerek birlikte değerlendirelim.
           </p>
-        </div>
 
-        <div>
-          <h3>İletişim</h3>
-          <div class="footer-links">
-            <a id="footerPhone" href="tel:+905XXXXXXXXX">
-              Telefon: Numara eklenecek
+          <div class="contact-actions">
+            <button class="button button-primary" id="callButton" type="button">
+              Bizi Arayın
+            </button>
+
+            <a
+              class="button button-secondary"
+              id="whatsappButton"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp ile Yazın
             </a>
-            <a id="footerWhatsApp" href="#">WhatsApp'tan mesaj gönder</a>
-            <a id="footerEmail" href="mailto:ornek@eposta.com">
-              E-posta: ornek@eposta.com
+
+            <a
+              class="button button-secondary"
+              id="emailButton"
+              href="#"
+            >
+              E-posta Gönderin
             </a>
           </div>
         </div>
 
-        <div>
-          <h3>Bilgilendirme</h3>
+        <aside class="contact-panel">
+          <h3>Doğrudan iletişim</h3>
           <p>
-            Güzergâh, çalışma saatleri ve fiyat bilgisi için
-            lütfen doğrudan iletişime geçin.
+            Telefon ve e-posta bilgilerine buradan ulaşabilirsiniz.
           </p>
-          <p style="margin-top:8px">
-            Hizmet detayları görüşme sırasında netleştirilir.
-          </p>
+
+          <button
+            class="details-toggle"
+            id="detailsToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="contactDetails"
+          >
+            <span>İletişim Bilgileri</span>
+            <span class="toggle-arrow" aria-hidden="true">⌄</span>
+          </button>
+
+          <div class="contact-details" id="contactDetails" hidden>
+            <div class="detail-row">
+              <span class="detail-label">Telefon</span>
+              <a class="detail-value detail-link" id="phoneLink" href="#">
+                Telefon numarası
+              </a>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-label">E-posta</span>
+              <a class="detail-value detail-link" id="emailLink" href="#">
+                E-posta adresi
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Oğuzhan Ulaşım Hizmetleri</div>
+        <div class="footer-copy">
+          © <span id="currentYear"></span> Tüm hakları saklıdır.
         </div>
       </div>
 
-      <div class="copyright">
-        © <span id="year"></span> Oğuzhan Servis Taşımacılığı
-      </div>
+      <a class="footer-link" href="#iletisim">İletişim</a>
     </div>
   </footer>
 
   <script>
-    // BU BİLGİLERİ GERÇEK İLETİŞİM BİLGİLERİYLE DEĞİŞTİR.
-    // Telefon: Türkiye ülke kodu + 10 haneli numara.
-    // Başında + veya 0 kullanma. Örnek biçim: 905321234567
-    const phone = "905XXXXXXXXX";
-    const email = "ornek@eposta.com";
+    // YAYINA ALMADAN ÖNCE TELEFON VE E-POSTA BİLGİLERİNİ GÜNCELLE.
+    const CONTACT = {
+      phone: "905XXXXXXXXX",
+      email: "ornek@eposta.com",
+      message: "Merhaba, servis taşımacılığı için yazıyorum."
+    };
 
-    const message = "Merhaba, servis taşımacılığı için yazıyorum.";
+    const phoneLink = document.getElementById("phoneLink");
+    const emailLink = document.getElementById("emailLink");
+    const callButton = document.getElementById("callButton");
+    const whatsappButton = document.getElementById("whatsappButton");
+    const emailButton = document.getElementById("emailButton");
+    const detailsToggle = document.getElementById("detailsToggle");
+    const contactDetails = document.getElementById("contactDetails");
 
-    const whatsappUrl =
-      "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+    const validPhone = /^90\d{10}$/.test(CONTACT.phone);
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT.email);
 
-    const phoneUrl = "tel:+" + phone;
-    const emailUrl = "mailto:" + email;
+    const emailSubject = "Servis Taşımacılığı Hakkında";
+    const emailBody =
+      "Merhaba,\n\nServis taşımacılığı hakkında bilgi almak istiyorum.\n\nİyi günler.";
 
-    document.getElementById("heroWhatsApp").href = whatsappUrl;
-    document.getElementById("contactWhatsApp").href = whatsappUrl;
-    document.getElementById("footerWhatsApp").href = whatsappUrl;
+    if (validEmail) {
+      const mailto =
+        "mailto:" + CONTACT.email +
+        "?subject=" + encodeURIComponent(emailSubject) +
+        "&body=" + encodeURIComponent(emailBody);
 
-    document.getElementById("contactPhone").href = phoneUrl;
-    document.getElementById("footerPhone").href = phoneUrl;
-    document.getElementById("footerPhone").textContent =
-      "Telefon: " + phone;
+      emailButton.href = mailto;
+      emailLink.textContent = CONTACT.email;
+      emailLink.href = "mailto:" + CONTACT.email;
+    } else {
+      emailButton.href = "mailto:";
+      emailLink.textContent = "E-posta adresi eklenmedi";
+      emailLink.removeAttribute("href");
 
-    document.getElementById("footerEmail").href = emailUrl;
-    document.getElementById("footerEmail").textContent =
-      "E-posta: " + email;
+      emailButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        alert("E-posta butonu için önce CONTACT bölümüne e-posta adresini ekleyin.");
+      });
+    }
 
-    document.getElementById("year").textContent =
+    if (validPhone) {
+      const formattedPhone =
+        "+90 " +
+        CONTACT.phone.slice(2, 5) + " " +
+        CONTACT.phone.slice(5, 8) + " " +
+        CONTACT.phone.slice(8, 10) + " " +
+        CONTACT.phone.slice(10, 12);
+
+      phoneLink.textContent = formattedPhone;
+      phoneLink.href = "tel:+" + CONTACT.phone;
+
+      whatsappButton.href =
+        "https://wa.me/" + CONTACT.phone +
+        "?text=" + encodeURIComponent(CONTACT.message);
+
+      callButton.addEventListener("click", function () {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(
+          navigator.userAgent
+        );
+
+        if (isMobile) {
+          window.location.href = "tel:+" + CONTACT.phone;
+        } else {
+          contactDetails.hidden = false;
+          detailsToggle.setAttribute("aria-expanded", "true");
+          phoneLink.focus();
+        }
+      });
+    } else {
+      phoneLink.textContent = "Telefon numarası eklenmedi";
+      phoneLink.removeAttribute("href");
+
+      whatsappButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        alert("WhatsApp bağlantısı için önce telefon numarasını ekleyin.");
+      });
+
+      callButton.addEventListener("click", function () {
+        contactDetails.hidden = false;
+        detailsToggle.setAttribute("aria-expanded", "true");
+        phoneLink.focus();
+      });
+    }
+
+    detailsToggle.addEventListener("click", function () {
+      const isExpanded =
+        detailsToggle.getAttribute("aria-expanded") === "true";
+
+      detailsToggle.setAttribute("aria-expanded", String(!isExpanded));
+      contactDetails.hidden = isExpanded;
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !contactDetails.hidden &&
+        !event.target.closest(".contact-panel")
+      ) {
+        contactDetails.hidden = true;
+        detailsToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !contactDetails.hidden) {
+        contactDetails.hidden = true;
+        detailsToggle.setAttribute("aria-expanded", "false");
+        detailsToggle.focus();
+      }
+    });
+
+    document.getElementById("currentYear").textContent =
       new Date().getFullYear();
   </script>
 </body>
