@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0d1421" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Arp Tur. Bursa ve çevresinde personel ve öğrenci servisi ve transfer. Mustafakemalpaşa, Yalıntaş Mahallesi.">
 <title>Arp Tur | Bursa Servis ve Tur Hizmetleri</title>
-<link rel="icon" href="https://raw.githubusercontent.com/TREFE1275/servistasimacilikdemo/refs/heads/main/%C5%9Eeffaf%20Arka%20Planl%C4%B1%20ARP%20Turizm%20Logosu.png">
+<link rel="icon" href="https://raw.githubusercontent.com/TREFE1275/servistasimacilikdemo/main/%C5%9Eeffaf%20Arka%20Planl%C4%B1%20ARP%20Turizm%20Logosu%20(1).png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
@@ -24,10 +24,11 @@ h1,h2,h3{font-family:"Manrope",sans-serif;color:var(--navy);margin:0}
 svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .container{width:min(1100px,calc(100% - 44px));margin-inline:auto}
 .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-.header-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.header-inner{min-height:70px;padding-block:8px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1}
 .brand svg{display:block;height:34px;width:auto;overflow:visible}
-.brand img{display:block;height:44px;width:auto}
+.brand img{display:block;height:var(--logo-h,44px);width:auto}
+@media (prefers-color-scheme:dark){.brand img.nodark{filter:invert(1) hue-rotate(180deg)}}
 .brand .tag{font:700 9.5px/1 "Manrope",sans-serif;letter-spacing:.06em;color:var(--muted)}
 .lg-a{fill:var(--logo)}
 .lg-t{fill:#ef2b2d}
@@ -127,7 +128,7 @@ section.block{padding:64px 0}
 .place,.contact{gap:30px}
 .actions .button{flex:1 1 150px}
 }
-@media (max-width:520px){.steps{grid-template-columns:1fr}.track figure{flex-basis:82%}.card{flex-basis:100%}.brand img{height:38px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.track figure{flex-basis:82%}.card{flex-basis:100%}.brand img{height:var(--logo-hm,38px)}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -302,10 +303,12 @@ const GALLERY=[
   "IMG-20261019-WA0018.jpg",
   {src:"IMG-20261019-WA0013.jpg", zoom:true}   // zoom:true = fotoğrafı sağa doğru yakınlaştırır
 ];
-// Logo şimdilik kodla çiziliyor. Kendi logon hazır olunca dosya adını ya da linkini buraya yaz.
-// Koyu tema için açık renkli sürümü LOGO_URL_DARK'a yazabilirsin (boş bırakılırsa aynı logo kullanılır).
-const LOGO_URL="";
-const LOGO_URL_DARK="";
+// Logo: dosya adı ya da link. Boş bırakırsan ("") kodla çizilmiş yedek logo görünür.
+const LOGO_URL="https://github.com/TREFE1275/servistasimacilikdemo/blob/main/%C5%9Eeffaf%20Arka%20Planl%C4%B1%20ARP%20Turizm%20Logosu%20(1).png?raw=true";
+const LOGO_URL_DARK="";     // Koyu tema için açık renkli logo (isteğe bağlı). Boşsa koyu temada logonun renkleri otomatik açılır.
+const LOGO_HEIGHT=52;       // Bilgisayarda logo yüksekliği (px). Büyütmek/küçültmek için bu sayıyı değiştir.
+const LOGO_HEIGHT_MOBILE=42; // Telefonda logo yüksekliği (px)
+const TAG_TEXT="Turizm & Servis Taşımacılığı"; // Logonun altındaki yazı. Silmek için "" bırak.
 const all=s=>document.querySelectorAll(s);
 const okPhone=/^90\d{10}$/.test(CONTACT.phone), okMail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT.email);
 const warn=(el,msg)=>el.addEventListener("click",e=>{e.preventDefault();alert(msg)});
@@ -327,8 +330,11 @@ if(okMail){
 }
 const imgUrl=u=>/^https?:/.test(u)?u.replace(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/blob\//,"https://raw.githubusercontent.com/$1/").replace(/\?raw=true$/,""):IMG_BASE+u;
 if(LOGO_URL){
-  const img='<img src="'+imgUrl(LOGO_URL)+'" alt="Arp Turizm" referrerpolicy="no-referrer">';
-  document.getElementById("brand").innerHTML=LOGO_URL_DARK?'<picture><source media="(prefers-color-scheme: dark)" srcset="'+imgUrl(LOGO_URL_DARK)+'">'+img+'</picture>':img;
+  const b=document.getElementById("brand");
+  b.style.setProperty("--logo-h",LOGO_HEIGHT+"px");b.style.setProperty("--logo-hm",LOGO_HEIGHT_MOBILE+"px");
+  const img='<img'+(LOGO_URL_DARK?'':' class="nodark"')+' src="'+imgUrl(LOGO_URL)+'" alt="Arp Turizm" referrerpolicy="no-referrer">';
+  b.innerHTML=LOGO_URL_DARK?'<picture><source media="(prefers-color-scheme: dark)" srcset="'+imgUrl(LOGO_URL_DARK)+'">'+img+'</picture>':img;
+  if(TAG_TEXT){const t=document.createElement("span");t.className="tag";t.textContent=TAG_TEXT;b.appendChild(t)}
 }
 GALLERY.forEach((g,i)=>{
   if(typeof g==="string")g={src:g};
