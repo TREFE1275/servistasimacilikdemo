@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#0d1421" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Arp Tur. Bursa ve çevresinde personel ve öğrenci servisi ve transfer. Mustafakemalpaşa, Yalıntaş Mahallesi.">
 <title>Arp Tur | Bursa Servis ve Tur Hizmetleri</title>
+<link rel="icon" href="arp-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -25,6 +26,7 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
 .header-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;font:800 20px "Manrope",sans-serif;color:var(--navy)}
+.brand img{display:block;height:46px;width:auto;background:#fff;border-radius:10px;padding:2px 8px}
 .brand i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--blue);color:var(--on-blue)}
 nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600;color:var(--muted)}
 nav a:hover{color:var(--blue)}
@@ -89,6 +91,14 @@ details p{margin:10px 0 0;color:var(--muted)}
 .place address span{display:block;color:var(--muted);font-weight:400;font-size:14px}
 .map{min-height:380px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--soft);box-shadow:var(--shadow)}
 .map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track figure{margin:0;flex:0 0 calc((100% - 36px)/3);aspect-ratio:4/5;scroll-snap-align:start;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--soft)}
+.track img{width:100%;height:100%;object-fit:cover;display:block}
+.gnav{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.gnav button{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--navy);cursor:pointer}
+.gnav button:hover{border-color:var(--blue);color:var(--blue)}
+.gnav button:disabled{opacity:.35;cursor:default}
 .contact{display:grid;grid-template-columns:1fr .85fr;gap:60px;align-items:start}
 .panel{padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow)}
 .panel h3{font-size:18px;margin-bottom:10px}
@@ -101,7 +111,9 @@ footer{border-top:1px solid var(--line);padding:26px 0}
 footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
 footer b{font-family:"Manrope",sans-serif;color:var(--navy);font-size:14px}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-@media (max-width:860px){.card{flex-basis:calc((100% - 18px)/2)}
+@media (max-width:860px){
+.track figure{flex-basis:calc((100% - 18px)/2)}
+.card{flex-basis:calc((100% - 18px)/2)}
 nav a{display:none}
 .hero .container{padding:60px 0 64px}
 .strip .container,.info,.place,.contact,.why .grid{grid-template-columns:1fr}
@@ -111,7 +123,7 @@ section.block{padding:64px 0}
 .place,.contact{gap:30px}
 .actions .button{flex:1 1 150px}
 }
-@media (max-width:520px){.steps{grid-template-columns:1fr}.card{flex-basis:100%}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.track figure{flex-basis:82%}.card{flex-basis:100%}.brand img{height:40px}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -132,9 +144,10 @@ section.block{padding:64px 0}
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="#"><i><svg class="i"><use href="#bus"/></svg></i>Arp Tur</a>
+    <a class="brand" href="#" aria-label="Arp Turizm ana sayfa"><img src="arp-logo.png" alt="Arp Turizm: Turizm ve Servis Taşımacılığı" width="140" height="51"></a>
     <nav aria-label="Ana menü">
       <a href="#hizmetler">Hizmetler</a>
+      <a href="#gorseller">Görsellerimiz</a>
       <a href="#bilgi">Bilgilendirme</a>
       <a href="#sss">Sık sorulanlar</a>
       <a href="#konum">Konum</a>
@@ -190,10 +203,28 @@ section.block{padding:64px 0}
     </div>
   </section>
 
+  <section class="block" id="gorseller">
+    <div class="container">
+      <p class="label">Görsellerimiz</p>
+      <h2>Araçlarımızdan kareler</h2>
+      <p class="lead">Hizmet verdiğimiz araçlardan bazıları. Kaydırarak hepsine bakabilirsiniz.</p>
+      <div class="track" id="track" tabindex="0" role="region" aria-label="Araç fotoğrafları">
+        <figure><img src="arp-1.jpg" alt="Arp Turizm servis aracı 1" loading="lazy"></figure>
+        <figure><img src="arp-2.jpg" alt="Arp Turizm servis aracı 2" loading="lazy"></figure>
+        <figure><img src="arp-3.jpg" alt="Arp Turizm servis aracı 3" loading="lazy"></figure>
+        <figure><img src="arp-4.jpg" alt="Arp Turizm servis aracı 4" loading="lazy"></figure>
+        <figure><img src="arp-5.jpg" alt="Arp Turizm servis aracı 5" loading="lazy"></figure>
+      </div>
+      <div class="gnav">
+        <button id="prev" type="button" aria-label="Önceki fotoğraf"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button id="next" type="button" aria-label="Sonraki fotoğraf"><svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
   <section class="block alt" id="bilgi">
     <div class="container">
       <p class="label">Bilgilendirme</p>
-      </ol>
       <div class="info">
         <div class="note"><h3>Hizmet bölgemiz</h3><p>Bursa merkez ve çevresi: Mustafakemalpaşa, Karacabey, Nilüfer, Osmangazi, Yıldırım ve çevre ilçeler. Başka bir bölge için lütfen sorun, birlikte değerlendirelim.</p></div>
         <div class="note"><h3>Teklif için hazır bulundurun</h3><ul><li>Başlangıç ve varış noktası</li><li>Gün ve saat bilgisi</li><li>Yolcu sayısı</li></ul></div>
@@ -280,6 +311,12 @@ if(okMail){
   all("[data-mail]").forEach(a=>warn(a,"Önce CONTACT bölümüne e-posta adresini ekleyin."));
   all("[data-mailtext]").forEach(a=>a.textContent="E-posta adresi eklenmedi");
 }
+const track=document.getElementById("track"),prev=document.getElementById("prev"),next=document.getElementById("next");
+const step=()=>track.firstElementChild.getBoundingClientRect().width+18;
+const upd=()=>{prev.disabled=track.scrollLeft<4;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4};
+prev.addEventListener("click",()=>track.scrollBy({left:-step(),behavior:"smooth"}));
+next.addEventListener("click",()=>track.scrollBy({left:step(),behavior:"smooth"}));
+track.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
