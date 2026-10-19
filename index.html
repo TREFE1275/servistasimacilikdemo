@@ -8,13 +8,13 @@
 <meta name="theme-color" content="#0d1421" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Arp Tur. Bursa ve çevresinde personel ve öğrenci servisi ve transfer. Mustafakemalpaşa, Yalıntaş Mahallesi.">
 <title>Arp Tur | Bursa Servis ve Tur Hizmetleri</title>
-<link rel="icon" href="https://cdn.discordapp.com/attachments/989977881046319114/1561831704648228875/Seffaf_Arka_Planl_ARP_Turizm_Logosu.png?ex=6ad7c89f&amp;is=6ad6771f&amp;hm=fe5622949d4fabbefced56b7da5bfead8b3f5f64cddd9cf798e0d2b16007bce0&amp;">
+<link rel="icon" href="https://raw.githubusercontent.com/TREFE1275/servistasimacilikdemo/refs/heads/main/%C5%9Eeffaf%20Arka%20Planl%C4%B1%20ARP%20Turizm%20Logosu.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--page:#fff;--surface:#fff;--soft:#f5f7fa;--navy:#101d35;--text:#253147;--muted:#687386;--blue:#315be8;--line:#e7eaf0;--shadow:0 14px 40px rgba(16,29,53,.08);--hero:#101d35;--hero2:#1b3170;--on-blue:#fff;--chip:rgba(255,255,255,.1)}
-@media (prefers-color-scheme:dark){:root{color-scheme:dark;--page:#0d1421;--surface:#151e2e;--soft:#121a29;--navy:#edf2ff;--text:#dbe3f2;--muted:#a3aec2;--blue:#8ba6ff;--line:#2a3549;--shadow:0 14px 40px rgba(0,0,0,.25);--hero:#070b13;--hero2:#14224a;--on-blue:#0d1421}}
+:root{color-scheme:light;--page:#fff;--surface:#fff;--soft:#f5f7fa;--navy:#101d35;--text:#253147;--muted:#687386;--blue:#315be8;--line:#e7eaf0;--shadow:0 14px 40px rgba(16,29,53,.08);--hero:#101d35;--hero2:#1b3170;--on-blue:#fff;--chip:rgba(255,255,255,.1);--logo:#0b3a7e}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--page:#0d1421;--surface:#151e2e;--soft:#121a29;--navy:#edf2ff;--text:#dbe3f2;--muted:#a3aec2;--blue:#8ba6ff;--line:#2a3549;--shadow:0 14px 40px rgba(0,0,0,.25);--hero:#070b13;--hero2:#14224a;--on-blue:#0d1421;--logo:#e8efff}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;background:var(--page);color:var(--text);font:16px/1.7 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -25,9 +25,13 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .container{width:min(1100px,calc(100% - 44px));margin-inline:auto}
 .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
 .header-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:10px;font:800 20px "Manrope",sans-serif;color:var(--navy)}
-.brand img{display:block;height:46px;width:auto;background:#fff;border-radius:10px;padding:2px 8px}
-.brand i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--blue);color:var(--on-blue)}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1}
+.brand svg{display:block;height:34px;width:auto;overflow:visible}
+.brand img{display:block;height:44px;width:auto}
+.brand .tag{font:700 9.5px/1 "Manrope",sans-serif;letter-spacing:.06em;color:var(--muted)}
+.lg-a{fill:var(--logo)}
+.lg-t{fill:#ef2b2d}
+.lg-s{fill:#41c1d9;stroke:var(--page);stroke-width:1.6;paint-order:stroke}
 nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600;color:var(--muted)}
 nav a:hover{color:var(--blue)}
 .button{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--navy);font-size:14px;font-weight:700;cursor:pointer;transition:transform .18s,box-shadow .18s}
@@ -123,7 +127,7 @@ section.block{padding:64px 0}
 .place,.contact{gap:30px}
 .actions .button{flex:1 1 150px}
 }
-@media (max-width:520px){.steps{grid-template-columns:1fr}.track figure{flex-basis:82%}.card{flex-basis:100%}.brand img{height:40px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.track figure{flex-basis:82%}.card{flex-basis:100%}.brand img{height:38px}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -144,7 +148,7 @@ section.block{padding:64px 0}
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="#" aria-label="Arp Turizm ana sayfa"><img src="https://cdn.discordapp.com/attachments/989977881046319114/1561831704648228875/Seffaf_Arka_Planl_ARP_Turizm_Logosu.png?ex=6ad7c89f&amp;is=6ad6771f&amp;hm=fe5622949d4fabbefced56b7da5bfead8b3f5f64cddd9cf798e0d2b16007bce0&amp;" referrerpolicy="no-referrer" alt="Arp Turizm: Turizm ve Servis Taşımacılığı" width="140" height="51"></a>
+    <a class="brand" id="brand" href="#" aria-label="Arp Turizm ana sayfa"><svg viewBox="0 0 172 44" role="img" aria-label="Arp Turizm"><text class="lg-a" x="0" y="35" font-family="Manrope,sans-serif" font-weight="800" font-size="42" textLength="86" lengthAdjust="spacingAndGlyphs">ARP</text><path class="lg-s" d="M0 32C15 24 37 20 60 19L61 22C41 24 20 30 5 39Z"/><text class="lg-t" x="90" y="31" font-family="Yellowtail,'Brush Script MT',cursive" font-size="30" textLength="78" lengthAdjust="spacingAndGlyphs" transform="rotate(-6 90 31)">Turizm</text></svg><span class="tag">Turizm &amp; Servis Taşımacılığı</span></a>
     <nav aria-label="Ana menü">
       <a href="#hizmetler">Hizmetler</a>
       <a href="#gorseller">Görsellerimiz</a>
@@ -208,13 +212,7 @@ section.block{padding:64px 0}
       <p class="label">Görsellerimiz</p>
       <h2>Araçlarımızdan kareler</h2>
       <p class="lead">Hizmet verdiğimiz araçlardan bazıları. Kaydırarak hepsine bakabilirsiniz.</p>
-      <div class="track" id="track" tabindex="0" role="region" aria-label="Araç fotoğrafları">
-        <figure><img src="https://cdn.discordapp.com/attachments/989977881046319114/1561828997875237005/IMG-20261019-WA0020.jpg?ex=6ad7c61a&amp;is=6ad6749a&amp;hm=e4fe56b191e07073ddb62ab23705b0a611b84eabc84566385efad24c0b106119&amp;" referrerpolicy="no-referrer" alt="Arp Turizm servis aracı 1" loading="lazy"></figure>
-        <figure><img src="https://cdn.discordapp.com/attachments/989977881046319114/1561828995417514014/IMG-20261019-WA0015.jpg?ex=6ad7c619&amp;is=6ad67499&amp;hm=5a538f5b14220c472fdb42126ff9c3f511ffc49077877b2e2c6d4743929a5603&amp;" referrerpolicy="no-referrer" alt="Arp Turizm servis aracı 2" loading="lazy"></figure>
-        <figure><img src="https://cdn.discordapp.com/attachments/989977881046319114/1561828998714232832/IMG-20261019-WA0021.jpg?ex=6ad7c61a&amp;is=6ad6749a&amp;hm=4f96e1139407c700136e0045987dbe46861c58138ee66667d32fc22327055195&amp;" referrerpolicy="no-referrer" alt="Arp Turizm servis aracı 3" loading="lazy"></figure>
-        <figure><img src="https://cdn.discordapp.com/attachments/989977881046319114/1561828997191696405/IMG-20261019-WA0018.jpg?ex=6ad7c61a&amp;is=6ad6749a&amp;hm=c562ee55853807f5a0c93e99df043ff70e8304ce7946086a20bbcfd331e912f8&amp;" referrerpolicy="no-referrer" alt="Arp Turizm servis aracı 4" loading="lazy"></figure>
-        <figure><img src="https://cdn.discordapp.com/attachments/989977881046319114/1561828994465275976/IMG-20261019-WA0013.jpg?ex=6ad7c619&amp;is=6ad67499&amp;hm=4d3108a871c10f715b4e22c200d004daa3d1e4f0213029314955826f0afe4d6f&amp;" referrerpolicy="no-referrer" style="transform:scale(1.36);transform-origin:100% 50%" alt="Arp Turizm servis aracı 5" loading="lazy"></figure>
-      </div>
+      <div class="track" id="track" tabindex="0" role="region" aria-label="Araç fotoğrafları"></div>
       <div class="gnav">
         <button id="prev" type="button" aria-label="Önceki fotoğraf"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
         <button id="next" type="button" aria-label="Sonraki fotoğraf"><svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
@@ -292,6 +290,22 @@ section.block{padding:64px 0}
 <script>
 // YAYINA ALMADAN ÖNCE TELEFON VE E-POSTAYI GÜNCELLE. Telefon: 90 ile başlayan 12 hane.
 const CONTACT={phone:"905375551647",email:"oguz8865@icloud.com",message:"Merhaba, Arp Tur servis ve tur hizmeti hakkında bilgi almak istiyorum."};
+
+// ===== LOGO VE GÖRSELLER =====
+// Görsel eklemek için: dosyayı GitHub deposuna yükle, dosya adını aşağıdaki GALLERY listesine yeni satır olarak yaz.
+// Tam link de yazabilirsin (github.com/.../blob/... ?raw=true formatı da çalışır). Sıra, listedeki sıradır.
+const IMG_BASE="https://raw.githubusercontent.com/TREFE1275/servistasimacilikdemo/main/";
+const GALLERY=[
+  "IMG-20261019-WA0020.jpg",
+  "IMG-20261019-WA0015.jpg",
+  "IMG-20261019-WA0021.jpg",
+  "IMG-20261019-WA0018.jpg",
+  {src:"IMG-20261019-WA0013.jpg", zoom:true}   // zoom:true = fotoğrafı sağa doğru yakınlaştırır
+];
+// Logo şimdilik kodla çiziliyor. Kendi logon hazır olunca dosya adını ya da linkini buraya yaz.
+// Koyu tema için açık renkli sürümü LOGO_URL_DARK'a yazabilirsin (boş bırakılırsa aynı logo kullanılır).
+const LOGO_URL="";
+const LOGO_URL_DARK="";
 const all=s=>document.querySelectorAll(s);
 const okPhone=/^90\d{10}$/.test(CONTACT.phone), okMail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT.email);
 const warn=(el,msg)=>el.addEventListener("click",e=>{e.preventDefault();alert(msg)});
@@ -311,6 +325,18 @@ if(okMail){
   all("[data-mail]").forEach(a=>warn(a,"Önce CONTACT bölümüne e-posta adresini ekleyin."));
   all("[data-mailtext]").forEach(a=>a.textContent="E-posta adresi eklenmedi");
 }
+const imgUrl=u=>/^https?:/.test(u)?u.replace(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/blob\//,"https://raw.githubusercontent.com/$1/").replace(/\?raw=true$/,""):IMG_BASE+u;
+if(LOGO_URL){
+  const img='<img src="'+imgUrl(LOGO_URL)+'" alt="Arp Turizm" referrerpolicy="no-referrer">';
+  document.getElementById("brand").innerHTML=LOGO_URL_DARK?'<picture><source media="(prefers-color-scheme: dark)" srcset="'+imgUrl(LOGO_URL_DARK)+'">'+img+'</picture>':img;
+}
+GALLERY.forEach((g,i)=>{
+  if(typeof g==="string")g={src:g};
+  const f=document.createElement("figure"),im=document.createElement("img");
+  im.src=imgUrl(g.src);im.alt="Arp Turizm servis aracı "+(i+1);im.loading="lazy";im.referrerPolicy="no-referrer";
+  if(g.zoom)im.style.cssText="transform:scale(1.36);transform-origin:100% 50%";
+  f.appendChild(im);document.getElementById("track").appendChild(f);
+});
 const track=document.getElementById("track"),prev=document.getElementById("prev"),next=document.getElementById("next");
 const step=()=>track.firstElementChild.getBoundingClientRect().width+18;
 const upd=()=>{prev.disabled=track.scrollLeft<4;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4};
