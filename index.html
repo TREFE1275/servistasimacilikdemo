@@ -32,7 +32,7 @@ nav a:hover{color:var(--blue)}
 .button:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
 .button.sm{min-height:40px;padding:8px 16px}
-.hero{position:relative;overflow:hidden;background:radial-gradient(900px 500px at 85% 0%,var(--hero2),transparent 70%),var(--hero);color:#fff}
+.hero{position:relative;overflow:hidden;background:var(--hero);color:#fff}
 .hero .container{padding:96px 0 104px;max-width:1100px}.hero .container>div{max-width:720px}
 .kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;color:#9db4ff;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
 .kicker::before{content:"";width:25px;height:2px;background:currentColor}
@@ -54,8 +54,9 @@ section.alt{background:var(--soft);border-block:1px solid var(--line)}
 .label{margin:0 0 12px;color:var(--blue);font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
 h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1.1px;line-height:1.22;max-width:600px}
 .lead{max-width:580px;margin:14px 0 40px;color:var(--muted);line-height:1.85}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
 .card{padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--surface);transition:transform .2s,box-shadow .2s,border-color .2s}
+.card{flex:0 1 calc((100% - 36px)/3)}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
 .ico{display:grid;place-items:center;width:50px;height:50px;margin-bottom:18px;border-radius:14px;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
 .card h3{font-size:18px;margin-bottom:6px}
@@ -100,7 +101,7 @@ footer{border-top:1px solid var(--line);padding:26px 0}
 footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
 footer b{font-family:"Manrope",sans-serif;color:var(--navy);font-size:14px}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-@media (max-width:860px){
+@media (max-width:860px){.card{flex-basis:calc((100% - 18px)/2)}
 nav a{display:none}
 .hero .container{padding:60px 0 64px}
 .strip .container,.info,.place,.contact,.why .grid{grid-template-columns:1fr}
@@ -110,7 +111,7 @@ section.block{padding:64px 0}
 .place,.contact{gap:30px}
 .actions .button{flex:1 1 150px}
 }
-@media (max-width:520px){.steps{grid-template-columns:1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.card{flex-basis:100%}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
