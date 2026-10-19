@@ -1,793 +1,293 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Oğuzhan Ulaşım Hizmetleri. Güvenilir servis taşımacılığı ve doğrudan iletişim.">
-  <title>Oğuzhan Ulaşım Hizmetleri | Servis Taşımacılığı</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      color-scheme: light;
-      --page: #ffffff;
-      --surface: #ffffff;
-      --soft: #f5f7fa;
-      --navy: #101d35;
-      --text: #253147;
-      --muted: #687386;
-      --blue: #315be8;
-      --line: #e7eaf0;
-      --box: #f7f9fd;
-      --shadow: 0 12px 35px rgba(16, 29, 53, 0.06);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        color-scheme: dark;
-        --page: #0d1421;
-        --surface: #151e2e;
-        --soft: #1a2435;
-        --navy: #edf2ff;
-        --text: #dbe3f2;
-        --muted: #a3aec2;
-        --blue: #8ba6ff;
-        --line: #2a3549;
-        --box: #172236;
-        --shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 24px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--page);
-      color: var(--text);
-      font-family: "DM Sans", sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      transition: background-color 0.2s, color 0.2s;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(1080px, calc(100% - 44px));
-      margin-inline: auto;
-    }
-
-    .site-header {
-      border-bottom: 1px solid var(--line);
-      background: var(--page);
-    }
-
-    .header-inner {
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-    }
-
-    .brand-name {
-      margin: 0;
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      line-height: 1.4;
-    }
-
-    .brand-caption {
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    /* ANA ALAN */
-
-    .hero {
-      padding: 88px 0 74px;
-      background: var(--page);
-    }
-
-    .hero-content {
-      max-width: 760px;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 18px;
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-    }
-
-    .hero-kicker::before {
-      content: "";
-      display: block;
-      width: 25px;
-      height: 2px;
-      background: var(--blue);
-      border-radius: 2px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(36px, 6vw, 58px);
-      font-weight: 800;
-      letter-spacing: -2.2px;
-      line-height: 1.12;
-      overflow-wrap: anywhere;
-    }
-
-    .hero-subtitle {
-      margin: 14px 0 0;
-      color: var(--blue);
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 700;
-    }
-
-    .hero-description {
-      max-width: 570px;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.9;
-    }
-
-    .hero-note {
-      max-width: 620px;
-      margin-top: 30px;
-      padding: 20px 22px;
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--blue);
-      border-radius: 12px;
-      background: var(--box);
-      box-shadow: var(--shadow);
-    }
-
-    .note-copy strong {
-      display: block;
-      margin: 0;
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.6;
-    }
-
-    .note-copy p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    /* HİZMET İLKELERİ */
-
-    .principles {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: var(--soft);
-    }
-
-    .principles-inner {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .principle {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      min-height: 100px;
-      padding: 22px 20px;
-    }
-
-    .principle + .principle {
-      border-left: 1px solid var(--line);
-    }
-
-    .principle-number {
-      color: var(--blue);
-      font-family: "Manrope", sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .principle-text {
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* İLETİŞİM */
-
-    .contact-section {
-      padding: 88px 0 94px;
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .section-label {
-      margin: 0 0 14px;
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-    }
-
-    .contact-section h2 {
-      max-width: 510px;
-      margin: 0;
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(28px, 4vw, 39px);
-      font-weight: 800;
-      letter-spacing: -1.1px;
-      line-height: 1.25;
-    }
-
-    .contact-description {
-      max-width: 490px;
-      margin: 17px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button {
-      min-height: 47px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border: 1px solid var(--line);
-      border-radius: 9px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      transition: transform 0.18s, background-color 0.18s,
-        border-color 0.18s;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      border-color: var(--navy);
-      background: var(--navy);
-      color: var(--page);
-    }
-
-    .button-secondary {
-      background: var(--surface);
-      color: var(--navy);
-    }
-
-    .button-secondary:hover {
-      border-color: var(--blue);
-    }
-
-    .contact-panel {
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-panel h3 {
-      margin: 0 0 7px;
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    .contact-panel > p {
-      margin: 0 0 19px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .details-toggle {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 0 0;
-      border: 0;
-      border-top: 1px solid var(--line);
-      background: transparent;
-      color: var(--navy);
-      cursor: pointer;
-      text-align: left;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .toggle-arrow {
-      color: var(--blue);
-      transition: transform 0.2s;
-    }
-
-    .details-toggle[aria-expanded="true"] .toggle-arrow {
-      transform: rotate(180deg);
-    }
-
-    .contact-details {
-      display: grid;
-      padding-top: 12px;
-    }
-
-    .contact-details[hidden] {
-      display: none;
-    }
-
-    .detail-row {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .detail-row:last-child {
-      border-bottom: 0;
-    }
-
-    .detail-label {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .detail-value {
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 600;
-      overflow-wrap: anywhere;
-    }
-
-    .detail-link {
-      color: var(--blue);
-    }
-
-    /* ALT BİLGİ */
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      background: var(--page);
-    }
-
-    .footer-inner {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding-top: 15px;
-      padding-bottom: 15px;
-    }
-
-    .footer-brand {
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .footer-copy {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .footer-link {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .footer-link:hover,
-    .detail-link:hover {
-      color: var(--blue);
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--blue);
-      outline-offset: 4px;
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        width: min(100% - 36px, 540px);
-      }
-
-      .header-inner {
-        min-height: 76px;
-      }
-
-      .hero {
-        padding: 64px 0 57px;
-      }
-
-      .hero h1 {
-        letter-spacing: -1.5px;
-      }
-
-      .hero-note {
-        margin-top: 25px;
-        padding: 17px;
-      }
-
-      .principles-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .principle {
-        min-height: 68px;
-        padding: 16px 4px;
-      }
-
-      .principle + .principle {
-        border-top: 1px solid var(--line);
-        border-left: 0;
-      }
-
-      .contact-section {
-        padding: 65px 0 70px;
-      }
-
-      .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .contact-panel {
-        padding: 21px;
-      }
-
-      .contact-actions {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-actions .button {
-        width: 100%;
-        padding-inline: 10px;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .contact-actions {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1421" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Arp Tur. Bursa ve çevresinde öğrenci ve personel servisi, turistik gezi ve transfer. Mustafakemalpaşa, Yalıntaş Mahallesi.">
+<title>Arp Tur | Bursa Servis ve Tur Hizmetleri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--page:#fff;--surface:#fff;--soft:#f5f7fa;--navy:#101d35;--text:#253147;--muted:#687386;--blue:#315be8;--line:#e7eaf0;--shadow:0 14px 40px rgba(16,29,53,.08);--hero:#101d35;--hero2:#1b3170;--on-blue:#fff;--chip:rgba(255,255,255,.1)}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--page:#0d1421;--surface:#151e2e;--soft:#121a29;--navy:#edf2ff;--text:#dbe3f2;--muted:#a3aec2;--blue:#8ba6ff;--line:#2a3549;--shadow:0 14px 40px rgba(0,0,0,.25);--hero:#070b13;--hero2:#14224a;--on-blue:#0d1421}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--page);color:var(--text);font:16px/1.7 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+h1,h2,h3{font-family:"Manrope",sans-serif;color:var(--navy);margin:0}
+svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.container{width:min(1100px,calc(100% - 44px));margin-inline:auto}
+.site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.header-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font:800 20px "Manrope",sans-serif;color:var(--navy)}
+.brand i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--blue);color:var(--on-blue)}
+nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600;color:var(--muted)}
+nav a:hover{color:var(--blue)}
+.button{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--navy);font-size:14px;font-weight:700;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.button:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.button.sm{min-height:40px;padding:8px 16px}
+.hero{position:relative;overflow:hidden;background:radial-gradient(900px 500px at 85% 0%,var(--hero2),transparent 70%),var(--hero);color:#fff}
+.hero .container{padding:96px 0 104px;max-width:1100px}.hero .container>div{max-width:720px}
+.kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;color:#9db4ff;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
+.kicker::before{content:"";width:25px;height:2px;background:currentColor}
+.hero h1{color:#fff;font-size:clamp(40px,6.4vw,66px);font-weight:800;letter-spacing:-2.2px;line-height:1.06}
+.hero p.sub{max-width:520px;margin:18px 0 0;color:#c4cee6;font-size:17px;line-height:1.85}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .button{background:var(--chip);border-color:rgba(255,255,255,.22);color:#fff}
+.hero .button.primary{background:#fff;border-color:#fff;color:#101d35}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.tags li{padding:6px 13px;border-radius:99px;background:var(--chip);font-size:13px;color:#dfe6f7}
+.strip{border-bottom:1px solid var(--line);background:var(--soft)}
+.strip .container{display:grid;grid-template-columns:repeat(3,1fr)}
+.pt{display:flex;gap:14px;align-items:center;padding:24px 20px;color:var(--navy);font-weight:700;font-size:14px}
+.pt+.pt{border-left:1px solid var(--line)}
+.pt svg{color:var(--blue)}
+.pt span{display:block;color:var(--muted);font-weight:400;font-size:13px}
+section.block{padding:92px 0}
+section.alt{background:var(--soft);border-block:1px solid var(--line)}
+.label{margin:0 0 12px;color:var(--blue);font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1.1px;line-height:1.22;max-width:600px}
+.lead{max-width:580px;margin:14px 0 40px;color:var(--muted);line-height:1.85}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--surface);transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
+.ico{display:grid;place-items:center;width:50px;height:50px;margin-bottom:18px;border-radius:14px;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s;position:relative}
+.steps li{counter-increment:s;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;margin-bottom:14px;border-radius:50%;background:var(--blue);color:var(--on-blue);font:800 15px "Manrope",sans-serif}
+.steps b{display:block;color:var(--navy);margin-bottom:4px}
+.steps p{margin:0;color:var(--muted);font-size:14px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.note{padding:24px 26px;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:14px;background:var(--surface)}
+.note h3{font-size:16px;margin-bottom:6px}
+.note p,.note ul{margin:0;color:var(--muted);font-size:14.5px}
+.note ul{padding-left:18px}
+.why{background:var(--hero);color:#fff}
+.why h2{color:#fff}
+.why .label{color:#9db4ff}
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.why .item{padding:26px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(255,255,255,.05)}
+.why h3{color:#fff;font-size:18px;margin-bottom:6px}
+.why p{margin:0;color:#c4cee6;font-size:14.5px}
+details{border-bottom:1px solid var(--line);padding:18px 0;max-width:780px}
+summary{cursor:pointer;font-weight:700;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--blue);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted)}
+.place{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:stretch}
+.place address{font-style:normal;margin:20px 0 24px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--navy);font-weight:700}
+.place address span{display:block;color:var(--muted);font-weight:400;font-size:14px}
+.map{min-height:380px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--soft);box-shadow:var(--shadow)}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+.contact{display:grid;grid-template-columns:1fr .85fr;gap:60px;align-items:start}
+.panel{padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow)}
+.panel h3{font-size:18px;margin-bottom:10px}
+.row{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0;padding-bottom:0}
+.row svg{color:var(--blue)}
+.row small{display:block;color:var(--muted);font-size:12px;line-height:1.4}
+.row a,.row span.v{color:var(--navy);font-weight:700;font-size:14.5px;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:26px 0}
+footer .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+footer b{font-family:"Manrope",sans-serif;color:var(--navy);font-size:14px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media (max-width:860px){
+nav a{display:none}
+.hero .container{padding:60px 0 64px}
+.strip .container,.info,.place,.contact,.why .grid{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr 1fr}
+.pt+.pt{border-left:0;border-top:1px solid var(--line)}
+section.block{padding:64px 0}
+.place,.contact{gap:30px}
+.actions .button{flex:1 1 150px}
+}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bus" viewBox="0 0 24 24"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2s-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3M9 18h5"/><circle cx="7" cy="18" r="2"/><circle cx="16" cy="18" r="2"/></symbol>
+  <symbol id="cap" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="bag" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/><circle cx="9" cy="7" r="4"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l1.9-5.4A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#"><i><svg class="i"><use href="#bus"/></svg></i>Arp Tur</a>
+    <nav aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#bilgi">Bilgilendirme</a>
+      <a href="#sss">Sık sorulanlar</a>
+      <a href="#konum">Konum</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
       <div>
-        <p class="brand-name">Oğuzhan Ulaşım Hizmetleri</p>
-        <p class="brand-caption">Servis Taşımacılığı</p>
+        <p class="kicker">Bursa ve çevresi</p>
+        <h1>Yolunuz açık olsun, Arp Tur yanınızda.</h1>
+        <p class="sub">Okula, işe ve gezilere güvenli ulaşım. İhtiyacınıza uygun servis ve tur hizmeti için doğrudan şoförle görüşün.</p>
+        <ul class="tags"><li>Öğrenci servisi</li><li>Personel servisi</li><li>Tur</li><li>Transfer</li></ul>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <p class="hero-kicker">Ulaşımda güven</p>
-
-          <h1>Oğuzhan Ulaşım Hizmetleri</h1>
-
-          <p class="hero-subtitle">Servis Taşımacılığı</p>
-
-          <p class="hero-description">
-            Güvenilir ulaşım ve özenli hizmet anlayışıyla,
-            ihtiyaçlarınıza uygun servis taşımacılığı için
-            doğrudan iletişim kurabilirsiniz.
-          </p>
-
-          <div class="hero-note">
-            <div class="note-copy">
-              <strong>Her yolculukta özenli hizmet.</strong>
-              <p>İhtiyacınızı konuşalım, birlikte değerlendirelim.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="principles" aria-label="Hizmet ilkeleri">
-      <div class="container principles-inner">
-        <div class="principle">
-          <span class="principle-number">01</span>
-          <span class="principle-text">Zamanında ulaşım</span>
-        </div>
-
-        <div class="principle">
-          <span class="principle-number">02</span>
-          <span class="principle-text">Özenli hizmet</span>
-        </div>
-
-        <div class="principle">
-          <span class="principle-number">03</span>
-          <span class="principle-text">Doğrudan iletişim</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="iletisim">
-      <div class="container contact-layout">
-        <div>
-          <p class="section-label">İletişim</p>
-
-          <h2>İhtiyacınızı konuşalım. Birlikte çözelim.</h2>
-
-          <p class="contact-description">
-            Servis taşımacılığıyla ilgili ihtiyaçlarınızı paylaşın.
-            Detayları doğrudan görüşerek birlikte değerlendirelim.
-          </p>
-
-          <div class="contact-actions">
-            <button class="button button-primary" id="callButton" type="button">
-              Bizi Arayın
-            </button>
-
-            <a
-              class="button button-secondary"
-              id="whatsappButton"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp ile Yazın
-            </a>
-
-            <a
-              class="button button-secondary"
-              id="emailButton"
-              href="#"
-            >
-              E-posta Gönderin
-            </a>
-          </div>
-        </div>
-
-        <aside class="contact-panel">
-          <h3>Doğrudan iletişim</h3>
-          <p>
-            Telefon ve e-posta bilgilerine buradan ulaşabilirsiniz.
-          </p>
-
-          <button
-            class="details-toggle"
-            id="detailsToggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="contactDetails"
-          >
-            <span>İletişim Bilgileri</span>
-            <span class="toggle-arrow" aria-hidden="true">⌄</span>
-          </button>
-
-          <div class="contact-details" id="contactDetails" hidden>
-            <div class="detail-row">
-              <span class="detail-label">Telefon</span>
-              <a class="detail-value detail-link" id="phoneLink" href="#">
-                Telefon numarası
-              </a>
-            </div>
-
-            <div class="detail-row">
-              <span class="detail-label">E-posta</span>
-              <a class="detail-value detail-link" id="emailLink" href="#">
-                E-posta adresi
-              </a>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="footer-brand">Oğuzhan Ulaşım Hizmetleri</div>
-        <div class="footer-copy">
-          © <span id="currentYear"></span> Tüm hakları saklıdır.
-        </div>
-      </div>
-
-      <a class="footer-link" href="#iletisim">İletişim</a>
+  <div class="strip">
+    <div class="container">
+      <div class="pt"><svg class="i"><use href="#clock"/></svg><div>Zamanında ulaşım<span>Saatlere sadık güzergâhlar</span></div></div>
+      <div class="pt"><svg class="i"><use href="#heart"/></svg><div>Özenli hizmet<span>Yolcu ve araç bakımına dikkat</span></div></div>
+      <div class="pt"><svg class="i"><use href="#phone"/></svg><div>Doğrudan iletişim<span>Aracı yok, şoförle görüşürsünüz</span></div></div>
     </div>
-  </footer>
+  </div>
 
-  <script>
-    // YAYINA ALMADAN ÖNCE TELEFON VE E-POSTA BİLGİLERİNİ GÜNCELLE.
-    const CONTACT = {
-      phone: "905XXXXXXXXX",
-      email: "ornek@eposta.com",
-      message: "Merhaba, servis taşımacılığı için yazıyorum."
-    };
+  <section class="block" id="hizmetler">
+    <div class="container">
+      <p class="label">Hizmetlerimiz</p>
+      <h2>Her ihtiyaca uygun taşımacılık</h2>
+      <p class="lead">Günlük düzenli servislerden tek seferlik gezilere kadar farklı ihtiyaçlar için hizmet veriyoruz.</p>
+      <div class="cards">
+        <div class="card"><div class="ico"><svg class="i"><use href="#cap"/></svg></div><h3>Öğrenci servisi</h3><p>Okul gidiş dönüşleri için düzenli güzergâh ve sabit saatler.</p></div>
+        <div class="card"><div class="ico"><svg class="i"><use href="#bag"/></svg></div><h3>Personel servisi</h3><p>Fabrika, ofis ve işletme çalışanları için vardiyalara uygun servis.</p></div>
+        <div class="card"><div class="ico"><svg class="i"><use href="#pin"/></svg></div><h3>Turistik gezi</h3><p>Günübirlik ve çok günlü turlar. Rotayı birlikte planlarız.</p></div>
+        <div class="card"><div class="ico"><svg class="i"><use href="#plane"/></svg></div><h3>Transfer</h3><p>Havalimanı, otogar ve şehirler arası tek seferlik ulaşım.</p></div>
+        <div class="card"><div class="ico"><svg class="i"><use href="#heart"/></svg></div><h3>Özel günler</h3><p>Düğün, nişan, mezuniyet ve etkinlikler için araç hizmeti.</p></div>
+        <div class="card"><div class="ico"><svg class="i"><use href="#users"/></svg></div><h3>Kurumsal ve grup</h3><p>Okul gezileri, dernek ve şirket organizasyonları için grup taşımacılığı.</p></div>
+      </div>
+    </div>
+  </section>
 
-    const phoneLink = document.getElementById("phoneLink");
-    const emailLink = document.getElementById("emailLink");
-    const callButton = document.getElementById("callButton");
-    const whatsappButton = document.getElementById("whatsappButton");
-    const emailButton = document.getElementById("emailButton");
-    const detailsToggle = document.getElementById("detailsToggle");
-    const contactDetails = document.getElementById("contactDetails");
+  <section class="block why">
+    <div class="container">
+      <p class="label">Neden Arp Tur</p>
+      <h2>Yolcusunu tanıyan, yolu bilen hizmet</h2>
+      <div class="grid">
+        <div class="item"><h3>Şoförle direkt görüşme</h3><p>Talebiniz aracıya değil, doğrudan hizmeti verecek kişiye ulaşır.</p></div>
+        <div class="item"><h3>Esnek planlama</h3><p>Durak, saat ve güzergâhı ihtiyacınıza göre birlikte belirleriz.</p></div>
+        <div class="item"><h3>Net teklif</h3><p>Fiyat baştan konuşulur, işe başlamadan her şey açıktır.</p></div>
+      </div>
+    </div>
+  </section>
 
-    const validPhone = /^90\d{10}$/.test(CONTACT.phone);
-    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT.email);
+  <section class="block alt" id="bilgi">
+    <div class="container">
+      <p class="label">Bilgilendirme</p>
+      <h2>Hizmet nasıl işliyor?</h2>
+      <p class="lead">Başlamak için karmaşık bir işlem yok. Dört adımda planı netleştiriyoruz.</p>
+      <ol class="steps">
+        <li><b>İhtiyacınızı iletin</b><p>Nereden nereye, hangi saatte ve kaç kişi olduğunuzu söyleyin.</p></li>
+        <li><b>Güzergâhı planlayalım</b><p>Durakları ve saatleri birlikte belirleriz.</p></li>
+        <li><b>Fiyatı netleştirelim</b><p>Mesafe, kişi sayısı ve süreye göre teklifimizi paylaşırız.</p></li>
+        <li><b>Hizmet başlasın</b><p>Anlaşılan günde araç ve şoförle zamanında yanınızdayız.</p></li>
+      </ol>
+      <div class="info">
+        <div class="note"><h3>Hizmet bölgemiz</h3><p>Bursa merkez ve çevresi: Mustafakemalpaşa, Nilüfer, Osmangazi, Yıldırım ve çevre ilçeler. Başka bir bölge için lütfen sorun, birlikte değerlendirelim.</p></div>
+        <div class="note"><h3>Teklif için hazır bulundurun</h3><ul><li>Başlangıç ve varış noktası</li><li>Gün ve saat bilgisi</li><li>Yolcu sayısı</li><li>Düzenli servis ise haftalık gün sayısı</li></ul></div>
+      </div>
+    </div>
+  </section>
 
-    const emailSubject = "Servis Taşımacılığı Hakkında";
-    const emailBody =
-      "Merhaba,\n\nServis taşımacılığı hakkında bilgi almak istiyorum.\n\nİyi günler.";
+  <section class="block" id="sss">
+    <div class="container">
+      <p class="label">Sık sorulanlar</p>
+      <h2>Merak edilenler</h2>
+      <div style="margin-top:30px">
+        <details><summary>Hangi bölgelere hizmet veriyorsunuz?</summary><p>Bursa ve çevresine hizmet veriyoruz. Merkezimiz Mustafakemalpaşa, Yalıntaş Mahallesi. Farklı bir güzergâh için bize ulaşabilirsiniz.</p></details>
+        <details><summary>Okul ve iş için düzenli servis yapıyor musunuz?</summary><p>Evet. Öğrenci ve personel servisi için sabit güzergâh ve saatlerle düzenli hizmet planlayabiliriz.</p></details>
+        <details><summary>Tek seferlik tur veya transfer alabilir miyim?</summary><p>Evet. Günübirlik gezi, havalimanı transferi ve özel gün organizasyonları için tek seferlik hizmet veriyoruz.</p></details>
+        <details><summary>Fiyatı nasıl öğrenirim?</summary><p>Fiyat mesafeye, saate ve kişi sayısına göre değişir. Bilgileri paylaşmanız yeterli, size net teklif veririz.</p></details>
+        <details><summary>Ne kadar önceden haber vermeliyim?</summary><p>Turlar ve özel günler için mümkün olduğunca erken yazmanız planı kolaylaştırır. Düzenli servislerde başlangıç tarihini birlikte belirleriz.</p></details>
+      </div>
+    </div>
+  </section>
 
-    if (validEmail) {
-      const mailto =
-        "mailto:" + CONTACT.email +
-        "?subject=" + encodeURIComponent(emailSubject) +
-        "&body=" + encodeURIComponent(emailBody);
+  <section class="block alt" id="konum">
+    <div class="container place">
+      <div>
+        <p class="label">Konum</p>
+        <h2>Bizi haritada bulun</h2>
+        <address>Yalıntaş Mahallesi<span>Mustafakemalpaşa, Bursa</span></address>
+        <a class="button primary" href="https://www.google.com/maps/search/?api=1&query=Yal%C4%B1nta%C5%9F+Mahallesi+Mustafakemalpa%C5%9Fa+Bursa" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#pin"/></svg>Yol tarifi al</a>
+      </div>
+      <div class="map">
+        <iframe title="Arp Tur konumu: Yalıntaş Mahallesi, Mustafakemalpaşa, Bursa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Yal%C4%B1nta%C5%9F+Mahallesi,+Mustafakemalpa%C5%9Fa,+Bursa&amp;output=embed"></iframe>
+      </div>
+    </div>
+  </section>
 
-      emailButton.href = mailto;
-      emailLink.textContent = CONTACT.email;
-      emailLink.href = "mailto:" + CONTACT.email;
-    } else {
-      emailButton.href = "mailto:";
-      emailLink.textContent = "E-posta adresi eklenmedi";
-      emailLink.removeAttribute("href");
+  <section class="block" id="iletisim">
+    <div class="container contact">
+      <div>
+        <p class="label">İletişim</p>
+        <h2>İhtiyacınızı konuşalım. Birlikte çözelim.</h2>
+        <p class="lead" style="margin-bottom:28px">Servis ve tur ihtiyaçlarınızı paylaşın, detayları doğrudan görüşerek değerlendirelim.</p>
+        <div class="actions" style="margin-top:0">
+          <a class="button primary" data-call href="#iletisim"><svg class="i"><use href="#phone"/></svg>Ara</a>
+          <a class="button" data-wa href="#iletisim" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#chat"/></svg>WhatsApp</a>
+          <a class="button" data-mail href="#iletisim"><svg class="i"><use href="#mail"/></svg>E-posta</a>
+        </div>
+      </div>
+      <aside class="panel">
+        <h3>İletişim bilgileri</h3>
+        <div class="row"><svg class="i"><use href="#phone"/></svg><div><small>Telefon</small><a data-phone href="#iletisim">Telefon numarası</a></div></div>
+        <div class="row"><svg class="i"><use href="#mail"/></svg><div><small>E-posta</small><a data-mailtext href="#iletisim">E-posta adresi</a></div></div>
+        <div class="row"><svg class="i"><use href="#pin"/></svg><div><small>Adres</small><span class="v">Yalıntaş Mahallesi, Mustafakemalpaşa, Bursa</span></div></div>
+      </aside>
+    </div>
+  </section>
+</main>
 
-      emailButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        alert("E-posta butonu için önce CONTACT bölümüne e-posta adresini ekleyin.");
-      });
-    }
+<footer>
+  <div class="container">
+    <div><b>Arp Tur</b><br>© <span id="year"></span> Tüm hakları saklıdır.</div>
+    <a href="#iletisim">İletişim</a>
+  </div>
+</footer>
 
-    if (validPhone) {
-      const formattedPhone =
-        "+90 " +
-        CONTACT.phone.slice(2, 5) + " " +
-        CONTACT.phone.slice(5, 8) + " " +
-        CONTACT.phone.slice(8, 10) + " " +
-        CONTACT.phone.slice(10, 12);
-
-      phoneLink.textContent = formattedPhone;
-      phoneLink.href = "tel:+" + CONTACT.phone;
-
-      whatsappButton.href =
-        "https://wa.me/" + CONTACT.phone +
-        "?text=" + encodeURIComponent(CONTACT.message);
-
-      callButton.addEventListener("click", function () {
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(
-          navigator.userAgent
-        );
-
-        if (isMobile) {
-          window.location.href = "tel:+" + CONTACT.phone;
-        } else {
-          contactDetails.hidden = false;
-          detailsToggle.setAttribute("aria-expanded", "true");
-          phoneLink.focus();
-        }
-      });
-    } else {
-      phoneLink.textContent = "Telefon numarası eklenmedi";
-      phoneLink.removeAttribute("href");
-
-      whatsappButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        alert("WhatsApp bağlantısı için önce telefon numarasını ekleyin.");
-      });
-
-      callButton.addEventListener("click", function () {
-        contactDetails.hidden = false;
-        detailsToggle.setAttribute("aria-expanded", "true");
-        phoneLink.focus();
-      });
-    }
-
-    detailsToggle.addEventListener("click", function () {
-      const isExpanded =
-        detailsToggle.getAttribute("aria-expanded") === "true";
-
-      detailsToggle.setAttribute("aria-expanded", String(!isExpanded));
-      contactDetails.hidden = isExpanded;
-    });
-
-    document.addEventListener("click", function (event) {
-      if (
-        !contactDetails.hidden &&
-        !event.target.closest(".contact-panel")
-      ) {
-        contactDetails.hidden = true;
-        detailsToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && !contactDetails.hidden) {
-        contactDetails.hidden = true;
-        detailsToggle.setAttribute("aria-expanded", "false");
-        detailsToggle.focus();
-      }
-    });
-
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
-  </script>
+<script>
+// YAYINA ALMADAN ÖNCE TELEFON VE E-POSTAYI GÜNCELLE. Telefon: 90 ile başlayan 12 hane.
+const CONTACT={phone:"905XXXXXXXXX",email:"ornek@eposta.com",message:"Merhaba, Arp Tur servis ve tur hizmeti hakkında bilgi almak istiyorum."};
+const all=s=>document.querySelectorAll(s);
+const okPhone=/^90\d{10}$/.test(CONTACT.phone), okMail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT.email);
+const warn=(el,msg)=>el.addEventListener("click",e=>{e.preventDefault();alert(msg)});
+if(okPhone){
+  const p=CONTACT.phone, wa="https://wa.me/"+p+"?text="+encodeURIComponent(CONTACT.message);
+  all("[data-call]").forEach(a=>a.href="tel:+"+p);
+  all("[data-wa]").forEach(a=>a.href=wa);
+  all("[data-phone]").forEach(a=>{a.href="tel:+"+p;a.textContent="+90 "+p.slice(2,5)+" "+p.slice(5,8)+" "+p.slice(8,10)+" "+p.slice(10)});
+}else{
+  all("[data-call],[data-wa]").forEach(a=>warn(a,"Önce CONTACT bölümüne telefon numarasını ekleyin."));
+  all("[data-phone]").forEach(a=>a.textContent="Telefon numarası eklenmedi");
+}
+if(okMail){
+  all("[data-mail]").forEach(a=>a.href="mailto:"+CONTACT.email+"?subject="+encodeURIComponent("Servis ve tur hakkında")+"&body="+encodeURIComponent("Merhaba,\n\nBilgi almak istiyorum.\n\nİyi günler."));
+  all("[data-mailtext]").forEach(a=>{a.href="mailto:"+CONTACT.email;a.textContent=CONTACT.email});
+}else{
+  all("[data-mail]").forEach(a=>warn(a,"Önce CONTACT bölümüne e-posta adresini ekleyin."));
+  all("[data-mailtext]").forEach(a=>a.textContent="E-posta adresi eklenmedi");
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
